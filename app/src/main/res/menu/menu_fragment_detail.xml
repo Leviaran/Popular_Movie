@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/favorite"
+        android:title="Favorite"
+        app:showAsAction="always"
+        android:icon="@mipmap/ic_star"
+        app:icon="@mipmap/ic_star"/>
+
+    <item
+        android:id="@+id/share"
+        android:title="Share"
+        app:showAsAction="always"
+        app:actionProviderClass="android.support.v7.widget.ShareActionProvider"
+        android:icon="@mipmap/ic_share"
+        app:icon="@mipmap/ic_share"/>
+
+</menu>

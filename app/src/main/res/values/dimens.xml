@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Activity dimens-->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activivity_vertical_margin">16dp</dimen>
+    <!-- Grid dimens-->
+    <dimen name="grid_item_moview_spasi">7dp</dimen>
+    <dimen name="grid_item_moview_width">100dp</dimen>
+    <dimen name="grid_item_moview_height">150dp</dimen>
+    <dimen name="grid_horizontal_spasi">5dp</dimen>
+    <dimen name="grid_padding">7dp</dimen>
+    <!-- Activity Specific dimens-->
+    <dimen name="moview_detail_trailer_height">250dp</dimen>
+    <dimen name="text_size_Grid_Detail">25sp</dimen>
+    <dimen name="text_size">16sp</dimen>
+</resources>
