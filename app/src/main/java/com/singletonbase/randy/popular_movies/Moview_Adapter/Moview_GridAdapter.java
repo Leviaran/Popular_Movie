@@ -5,7 +5,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.singletonbase.randy.popular_movies.Model_Data.Moview;
@@ -97,8 +99,7 @@ public class Moview_GridAdapter extends BaseAdapter {
         String image_URL = "http://image.tmdb.org/t/p/w185" + movie.getImage();
 
         viewHolder = (ViewHolder) view.getTag();
-
-        Picasso.with(getContext()).load(image_URL).into(viewHolder.imageView);
+        Picasso.with(getContext()).load(image_URL).placeholder(R.drawable.placeholder).into(viewHolder.imageView);
         viewHolder.textView.setText(movie.getTitle());
         return view;
     }

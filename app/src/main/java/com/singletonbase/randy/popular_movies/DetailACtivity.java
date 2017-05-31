@@ -12,7 +12,17 @@ public class DetailACtivity extends AppCompatActivity {
 
         if (savedInstanceState == null){
             Bundle args = new Bundle();
-            args.putParcelable(Detail_Fragment.);
+            args.putParcelable(Detail_Fragment.DETAIL_MOVIEW,getIntent().getParcelableExtra(Detail_Fragment.DETAIL_MOVIEW));
+
+            Detail_Fragment fragment = new Detail_Fragment();
+            fragment.setArguments(args);
+
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .add(R.id.detail_moview_container,fragment)
+                    .commit();
+
+
         }
     }
 }

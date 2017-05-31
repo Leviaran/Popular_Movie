@@ -4,25 +4,29 @@ import android.database.Cursor;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import com.singletonbase.randy.popular_movies.Main_Fragment;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
 /**
  * Created by randy on 30/05/17.
  */
 
 public class Moview implements Parcelable {
 
-    private int id;
+    private String id;
     private String title;
     private String image;
     private String image2;
     private String overview;
     private String date;
     private int rating;
+    private String popularity;
 
-    public Moview(){
 
-    }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
@@ -50,25 +54,45 @@ public class Moview implements Parcelable {
         return rating;
     }
 
+    public String getPopularity(){return popularity;}
+
+
+
+    public Moview(){}
+
     public Moview(Cursor cursor){
-        this.id=cursor.getInt(Fragment_main.COL_MOVIEW_ID);
-        this.id=cursor.getString(Fragment_main.COL_TITLE);
-        this.image= cursor.getString(Fragment_main.COL_IMAGE);
-        this.image2= cursor.getString(Fragment_main.COL_IMAGE2);
-        this.overview= cursor.getString(Fragment_main.COL_OVERVIEW);
-        this.date= cursor.getString(Fragment_main.COL_DATE);
-        this.rating= cursor.getInt(Fragment_main.COL_RATING);
+        this.id=cursor.getString(Main_Fragment.COL_MOVIE_ID);
+        this.title=cursor.getString(Main_Fragment.COL_TITLE);
+        this.image= cursor.getString(Main_Fragment.COL_IMAGE);
+        this.image2= cursor.getString(Main_Fragment.COL_IMAGE2);
+        this.overview= cursor.getString(Main_Fragment.COL_OVERVIEW);
+        this.date= cursor.getString(Main_Fragment.COL_DATE);
+        this.rating= cursor.getInt(Main_Fragment.COL_RATING);
+        this.popularity= cursor.getString(Main_Fragment.COL_POPULARITY);
+    }
+
+    public Moview(JSONObject movie) throws JSONException {
+        this.id = movie.getString("id");
+        this.title = movie.getString("original_title");
+        this.image = movie.getString("poster_path");
+        this.image2 = movie.getString("backdrop_path");
+        this.overview = movie.getString("overview");
+        this.rating = movie.getInt("vote_average");
+        this.date = movie.getString("release_date");
+        this.popularity = movie.getString("popularity");
+
     }
 
 
     protected Moview(Parcel in) {
-        id = in.readInt();
+        id = in.readString();
         title = in.readString();
         image = in.readString();
         image2 = in.readString();
         overview = in.readString();
         date = in.readString();
         rating = in.readInt();
+        popularity = in.readString();
     }
 
     public static final Creator<Moview> CREATOR = new Creator<Moview>() {
@@ -90,12 +114,13 @@ public class Moview implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeInt(id);
+        dest.writeString(id);
         dest.writeString(title);
         dest.writeString(image);
         dest.writeString(image2);
         dest.writeString(overview);
         dest.writeString(date);
         dest.writeInt(rating);
+        dest.writeString(popularity);
     }
 }

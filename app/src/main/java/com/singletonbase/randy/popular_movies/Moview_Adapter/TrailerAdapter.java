@@ -1,6 +1,7 @@
 package com.singletonbase.randy.popular_movies.Moview_Adapter;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -41,13 +42,14 @@ public class TrailerAdapter extends BaseAdapter {
             listTrailer.add(trailer1);
         }
         notifyDataSetChanged();
+
     }
 
     public void clear(){
         synchronized (trailer){
             listTrailer.clear();
         }
-        notifyDataSetChanged();
+        //notifyDataSetChanged();
     }
 
     public static class ViewHolder{
@@ -84,7 +86,7 @@ public class TrailerAdapter extends BaseAdapter {
             view.setTag(viewHolder);
         }
 
-        final Trailer trailer = new Trailer();
+        final Trailer trailer = getItem(position);
         viewHolder = (ViewHolder) view.getTag();
 
         String Video_URL = "http://img.youtube.com/vi/" + trailer.getKey() + "/0.jpg";

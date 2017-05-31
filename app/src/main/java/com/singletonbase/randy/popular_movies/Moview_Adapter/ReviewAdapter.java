@@ -1,6 +1,7 @@
 package com.singletonbase.randy.popular_movies.Moview_Adapter;
 
 import android.content.Context;
+import android.graphics.Typeface;
 import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,6 +10,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.singletonbase.randy.popular_movies.Detail_Fragment;
 import com.singletonbase.randy.popular_movies.Model_Data.Review;
 import com.singletonbase.randy.popular_movies.R;
 
@@ -61,6 +63,7 @@ public class ReviewAdapter extends BaseAdapter {
         public TextView Author;
         public TextView Review;
 
+
         public ViewHolder (View view){
             Author = (TextView) view.findViewById(R.id.Author_review);
             Review = (TextView) view.findViewById(R.id.Isi_review);
@@ -99,6 +102,7 @@ public class ReviewAdapter extends BaseAdapter {
         viewHolder = (ViewHolder) view.getTag();
         viewHolder.Author.setText(review.getAuthor());
         viewHolder.Review.setText(Html.fromHtml(review.getIsi()));
+        final ViewHolder finalViewHolder = viewHolder;
 
         return view;
     }

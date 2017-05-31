@@ -4,8 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:numColumns="auto_fit"
-    android:columnWidth="100dp"
-    android:verticalSpacing="@dimen/grid_item_moview_spasi"
+    android:columnWidth="170dp"
+    android:verticalSpacing="@dimen/grid_horizontal_spasi"
     android:horizontalSpacing="@dimen/grid_horizontal_spasi"
-    android:padding="@dimen/grid_padding"
+    android:padding="@dimen/grid_horizontal_spasi"
     android:drawSelectorOnTop="true"/>
